@@ -1,0 +1,511 @@
+/* Home.css */
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;   
+}
+  
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/planet-earth-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+  
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+  
+.home-content {
+  position: relative;
+  padding: 3.5rem 3rem;
+  z-index: 1;
+  text-align: center;
+  width: 800px;
+  max-width: 90%;
+  min-height: 520px;
+  background-color: rgba(13, 20, 40, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: contentGlow 4s infinite alternate ease-in-out;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes contentGlow {
+  0% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 8px 32px rgba(74, 101, 255, 0.3);
+  }
+}
+  
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+  
+.auth-button {
+  display: inline-block;
+  padding: 14px 42px;
+  background-color: #4a65ff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 1.4px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(74, 101, 255, 0.4);
+  animation: buttonFloat 2s infinite ease-in-out;
+  min-width: 200px;
+  max-width: 80%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes buttonFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+  
+.auth-button:hover {
+  background-color: #3a55eb;
+  transform: translateY(-5px) scale(1.05);
+  color: #ffffff;
+  box-shadow: 
+    0 0 10px #4a65ff,
+    0 0 20px rgba(74, 101, 255, 0.8),
+    0 0 30px rgba(74, 101, 255, 0.6),
+    0 0 40px rgba(74, 101, 255, 0.4);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  animation: none;
+}
+  
+.auth-button:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 0 15px #4a65ff;
+}
+  
+.main-title {
+  color: white;
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(74, 101, 255, 0.8), 0 0 30px rgba(74, 101, 255, 0.4);
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #ffffff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlow 4s infinite alternate ease-in-out;
+}
+  
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 15px rgba(74, 101, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(74, 101, 255, 0.8), 0 0 35px rgba(74, 101, 255, 0.4);
+  }
+}
+  
+.description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+  
+.description::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7), transparent);
+}
+  
+.features {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  background-color: rgba(20, 30, 60, 0.5);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.features:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+  background-color: rgba(25, 35, 70, 0.5);
+}
+  
+.feature-icon {
+  color: #6a85ff;
+  margin-right: 10px;
+  font-size: 1.2em;
+  display: inline-block;
+  animation: starTwinkle 2s infinite alternate;
+}
+  
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+  
+.feature-item {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+  
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+  
+.feature-text {
+  flex: 1;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 1200px) {
+  .home-content {
+    width: 820px;
+    min-height: 500px;
+    padding: 3rem 3rem;
+  }
+  
+  .auth-button {
+    padding: 16px 38px;
+    font-size: 1.15rem;
+    min-width: 180px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.3rem;
+  }
+  
+  .features {
+    padding: 1.3rem 2rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+  .home-content {
+    width: 82%;
+    max-width: 750px;
+    padding: 2.8rem 2.5rem;
+    min-height: 450px;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    max-width: 88%;
+    margin-bottom: 1.8rem;
+  }
+
+  .features {
+    width: 92%;
+    padding: 1.3rem 1.8rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 10px;
+  }
+  
+  .home-buttons {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .home-container {
+    padding: 0 15px;
+  }
+
+  .home-content {
+    width: 92%;
+    padding: 2.5rem 2rem;
+    min-height: 430px;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 92%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .features {
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    width: 95%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 9px;
+  }
+  
+  .auth-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    min-width: 170px;
+    height: 48px;
+  }
+  
+  .home-buttons {
+    margin-top: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    width: 94%;
+    padding: 2rem 1.2rem;
+    border-radius: 15px;
+    min-height: 400px;
+  }
+  
+  .main-title {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    max-width: 95%;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .description::after {
+    width: 40px;
+    bottom: -10px;
+  }
+  
+  .features {
+    width: 100%;
+    padding: 1rem 1.1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.8rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 8px;
+  }
+  
+  .feature-icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+  }
+  
+  .auth-button {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    min-width: 140px;
+    height: 42px;
+    letter-spacing: 1.2px;
+  }
+  
+  .home-buttons {
+    margin-top: 1.5rem;
+  }
+}
+
+/* iPhone SE และมือถือหน้าจอเล็ก */
+@media (max-width: 375px) {
+  .home-content {
+    padding: 1.8rem 1rem;
+    min-height: 380px;
+  }
+  
+  .main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .features {
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 6px;
+  }
+  
+  .auth-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    min-width: 130px;
+    height: 38px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .home-content {
+    min-height: auto;
+    padding: 1.2rem;
+    width: 85%;
+    max-width: 650px;
+  }
+
+  .main-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    max-width: 90%;
+  }
+  
+  .description::after {
+    display: none;
+  }
+  
+  .features {
+    font-size: 0.85rem;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.8rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .feature-item {
+    margin-bottom: 0;
+  }
+  
+  .home-buttons {
+    margin-top: 0.8rem;
+  }
+  
+  .auth-button {
+    height: 36px;
+    font-size: 0.85rem;
+    min-width: 120px;
+    padding: 8px 20px;
+  }
+}
+
+/* สำหรับแท็บเล็ตในแนวนอน */
+@media (min-width: 1024px) and (max-height: 768px) {
+  .home-content {
+    min-height: 450px;
+    padding: 2.5rem;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+  }
+  
+  .features {
+    max-width: 85%;
+  }
+}
+
+/* Ensure Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .main-title, .auth-button {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* Ensure full-page styling */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}

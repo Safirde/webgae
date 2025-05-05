@@ -1,0 +1,481 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background-color: #fff;
+  position: relative !important;
+}
+
+#root {
+  height: 100% !important;
+  width: 100% !important;
+  display: block !important;
+  background-color: #fff;
+}
+
+.scroll-fix {
+  overflow: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+/* Dashboard Container */
+.ar-dashboard-container {
+  display: flex !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: visible !important;
+  background-color: #fff;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Sidebar - ทำให้แคบลง */
+.ar-dashboard-sidebar {
+  width: 200px;
+  background-color: #3B82F6;
+  color: #fff;
+  transition: width 0.3s ease;
+  position: fixed !important;
+  z-index: 100;
+  height: 100vh !important;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.ar-dashboard-sidebar.collapsed {
+  width: 50px;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  z-index: 101;
+}
+
+.sidebar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation */
+.ar-dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 50px;
+}
+
+.ar-dashboard-nav-list {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.ar-dashboard-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  margin-bottom: 3px;
+}
+
+.ar-dashboard-nav-item i {
+  margin-right: 10px;
+  width: 18px;
+  text-align: center;
+}
+
+.ar-dashboard-nav-item:hover, 
+.ar-dashboard-nav-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #00c896;
+}
+
+.ar-dashboard-nav-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+  /* Nav Footer / Logout */
+  .mt-auto {
+    margin-top: auto;
+  }
+  
+  .pb-4 {
+    padding-bottom: 1rem;
+  }
+  
+  .text-red-500 {
+    color: #ef4444 !important;
+  }
+  
+  .text-left {
+    text-align: left !important;
+  }
+
+/* Main Content - ขยายให้กว้างขึ้น */
+.ar-dashboard-content {
+  flex: 1 !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  position: relative !important;
+  background-color: #f8f9fa;
+  margin-left: 200px;
+  width: calc(100% - 200px) !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+}
+
+.ar-dashboard-sidebar.collapsed + .ar-dashboard-content,
+.ar-dashboard-content.expanded {
+  margin-left: 50px;
+  width: calc(100% - 50px) !important;
+}
+
+/* Header - ทำให้กระชับขึ้น */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  width: 100% !important;
+  position: relative;
+  height: 60px;
+}
+
+.dashboard-title {
+  font-size: 1.5rem !important;
+  color: #333;
+  font-weight: 600 !important;
+  text-align: center !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  top: 50% !important;
+}
+
+.profile-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  margin-left: auto;
+}
+
+/* AR Content Container - ทำให้เต็มจอและกว้างขึ้น */
+.ar-content-container {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+}
+
+/* Form Styles */
+.ar-form-container {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.ar-form-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+
+.ar-form-group {
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.ar-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.ar-form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.ar-form-input,
+.ar-form-textarea,
+.ar-form-select {
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 150px;
+  background-color: #fff;
+  color: #000 !important; /* Changed back to black for active typing */
+  -webkit-text-fill-color: #000 !important; /* Changed back to black for active typing */
+  opacity: 1 !important;
+  font-weight: normal !important;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.ar-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.ar-form-input:focus,
+.ar-form-textarea:focus,
+.ar-form-select:focus {
+
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Table Styles */
+.ar-table-container {
+  overflow: visible !important;
+  width: 100% !important;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 15px;
+  display: block !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.ar-table {
+  width: 100% !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed !important;
+}
+
+.ar-table th {
+  background-color: #f5f7fa;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 500;
+  color: #495057;
+  border-bottom: 2px solid #e9ecef;
+  font-size: 0.9rem;
+}
+
+.ar-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e9ecef;
+  color: #333;
+  font-size: 0.9rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.ar-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.ar-action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+/* Actions Column - ปรับให้กว้างขึ้น */
+.actions-column {
+  min-width: 120px;
+  width: 120px;
+}
+
+/* Button Styles - ปรับให้กระชับขึ้น */
+.ar-button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.ar-button-primary {
+  background-color: #00CCFF;
+  color: white;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  max-width: 180px;
+  margin: 0 auto;
+  display: block;
+}
+
+.ar-button-edit {
+  background-color: #f39c12;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.ar-button-delete {
+  background-color: #e74c3c;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.ar-button:hover,
+.ar-button-edit:hover,
+.ar-button-delete:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* เพิ่มคลาสสำหรับขยายตาราง */
+.full-width-table {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.full-width-table th, 
+.full-width-table td {
+  white-space: normal;
+}
+
+/* ปรับให้ชื่อเรื่อง/ลิงก์ในตารางเต็มพื้นที่ */
+.title-column {
+  width: 25%;
+}
+
+.link-column {
+  width: 45%;
+}
+
+/* Logout Button Styling */
+.logout-container {
+  margin-top: auto;
+  width: 65%;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 15px; /* ปรับตำแหน่งด้านล่างให้ห่างจากขอบพอดี */
+  left: 20px;
+}
+
+.logout-button {
+  color: #ff6b6b !important;
+  background-color: white !important;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* จัดให้อยู่ตรงกลาง */
+  border: none; /* ลบเส้นขอบเดิม */
+  border-radius: 8px !important;
+  white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+  padding: 8px 15px; /* ปรับ padding ให้เหมาะสมกับภาพ */
+  font-size: 0.9rem; /* ปรับขนาดตัวอักษรให้เหมาะสม */
+  height: 35px; /* กำหนดความสูงให้เท่ากับในภาพ */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+  font-weight: 500; /* ทำให้ตัวอักษรหนาขึ้นเล็กน้อย */
+}
+
+/* Fix sidebar height for better logout button positioning */
+.ar-dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Make sure nav takes proper space */
+.ar-dashboard-nav {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure nav list doesn't expand too much */
+.ar-dashboard-nav-list {
+  overflow-y: auto;
+}
+
+
+/* Responsive Styles - ปรับให้เต็มจอมากขึ้น */
+@media screen and (max-width: 768px) {
+  .ar-dashboard-sidebar {
+    width: 50px;
+  }
+
+  .ar-dashboard-content {
+    margin-left: 50px !important;
+    width: calc(100% - 50px) !important;
+  }
+
+  .ar-form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dashboard-title {
+    font-size: 1.2rem !important;
+    
+  }
+  
+  .ar-action-buttons {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

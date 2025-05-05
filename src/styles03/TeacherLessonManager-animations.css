@@ -1,0 +1,144 @@
+/* 
+ * TeacherLessonManager Animation Styles
+ * Copy and paste these animations into your TeacherLessonManager.css file
+ * to replace the existing animations with improved slide effects
+ */
+
+/* Define the new slide animations */
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideToBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideToTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animation application to elements */
+
+/* Modal animations */
+.modal-overlay {
+  animation: fadeIn 0.35s ease;
+}
+
+.modal {
+  animation: slideFromTop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal.closing {
+  animation: slideToBottom 0.3s ease-in forwards;
+}
+
+/* Lesson card animations */
+.lesson-card {
+  animation: slideFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.lesson-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.lesson-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.lesson-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.lesson-card:nth-child(n+5) {
+  animation-delay: 0.4s;
+}
+
+/* Question card animations */
+.question-card {
+  animation: slideFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.question-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.question-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.question-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.question-card:nth-child(n+5) {
+  animation-delay: 0.4s;
+}
+
+/* AR Links dropdown animation */
+.ar-links-dropdown {
+  animation: slideFromTop 0.3s ease-out;
+}
+
+/* Enhanced hover animations for buttons */
+.btn:hover, 
+.add-new-button:hover, 
+.lesson-card .button-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active, 
+.add-new-button:active, 
+.lesson-card .button-group button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add smooth transitions to UI elements */
+.form-control, 
+.option-row, 
+.btn, 
+.lesson-card, 
+.question-card, 
+.modal {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+} 

@@ -1,0 +1,224 @@
+/* CSS for consistent table row colors */
+
+/* For the main CSS file (paste.txt) */
+.scores-table tbody tr {
+    background-color: rgb(220, 227, 230); /* Light pink/beige color for all rows */
+  }
+  
+  .scores-table tbody tr:nth-child(even) {
+    background-color: rgb(230, 220, 220); /* Same color for even rows */
+  }
+  
+  .scores-table tbody tr:nth-child(odd) {
+    background-color: rgb(230, 220, 220); /* Same color for odd rows */
+  }
+  
+  .scores-table tbody tr:hover {
+    background-color: rgb(235, 225, 225)/* Slightly lighter on hover */
+  }
+  
+  /* For the React component's inline styles */
+  .expandable-row {
+    cursor: pointer;
+    background-color:rgb(235, 225, 225) !important; /* Light pink/beige color with !important */
+  }
+  
+  .expandable-row:hover {
+    background-color: rgb(235, 225, 225) !important; /* Slightly lighter on hover */
+  }
+  
+  .expandable-row.expanded {
+    font-weight: 500;
+    background-color: rgb(235, 225, 225) !important; /* Slightly lighter when expanded */
+  }
+  
+  .detail-row {
+    background-color: rgb(255, 255, 255) !important; /* Very light pink for detail rows */
+    font-size: 0.95em;
+  }
+  
+  .detail-row:hover {
+    background-color:  rgb(255, 255, 255)!important; /* Even lighter on hover */
+  }
+  
+  /* Fix for the summary row */
+  .summary-row {
+    background-color: rgb(225, 160, 235) !important; /* Slightly darker for summary */
+    font-weight: 500;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  /* Fix for total score cells */
+  .total-score {
+    font-weight: 500;
+    background-color: transparent !important; /* Remove background color */
+  }
+  /* ExpandableStudentTable.css */
+
+/* Table container */
+.table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    position: relative;
+    width: 100% !important;
+  }
+  
+  /* Table styling */
+  .scores-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #e0e0e0;
+  }
+  
+  .scores-table th {
+    background-color: #0b3983;
+    color: white;
+    font-weight: 500;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    /* Adding right border for vertical dividers */
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Sortable headers */
+  .sortable-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .sortable-header:hover {
+    background-color: #2563eb !important;
+    color: white;
+  }
+  
+  /* Table body */
+  .scores-table tbody tr {
+    background-color: rgb(230, 220, 220);
+  }
+  
+  .scores-table tbody tr:nth-child(even) {
+    background-color: rgb(230, 220, 220);
+  }
+  
+  .scores-table tbody tr:nth-child(odd) {
+    background-color: rgb(230, 220, 220);
+  }
+  
+  .scores-table tbody tr:hover {
+    background-color: rgb(235, 225, 225);
+  }
+  
+  /* Table cells */
+  .scores-table th, .scores-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  /* Main expandable row styling */
+  .expandable-row {
+    cursor: pointer;
+    background-color: rgb(230, 220, 220) !important;
+    /* Add border to create separation between students */
+    border-top: 3px solid #aaa !important;
+  }
+  
+  .expandable-row:first-child {
+    border-top: none !important;
+  }
+  
+  .expandable-row:hover {
+    background-color: rgb(235, 225, 225) !important;
+  }
+  
+  .expandable-row.expanded {
+    font-weight: 500;
+    background-color: rgb(235, 225, 225) !important;
+  }
+  
+  /* Expandable cell with icon */
+  .expandable-cell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .expand-icon {
+    margin-right: 8px;
+  }
+  
+  .expand-hint {
+    font-size: 0.8em;
+    color: #f01010;
+    font-style: italic;
+    margin-left: 4px;
+  }
+  
+  /* Detail rows */
+  .detail-row {
+    background-color: rgb(255, 255, 255) !important;
+    font-size: 0.95em;
+  }
+  
+  .detail-row:hover {
+    background-color: rgb(255, 255, 255) !important;
+  }
+  
+  .lesson-title {
+    padding-left: 24px;
+    font-style: italic;
+  }
+  
+  /* Score coloring */
+  .high-score {
+    color: #28a745;
+    font-weight: 500;
+  }
+  
+  .low-score {
+    color: #dc3545;
+  }
+  
+  .total-score {
+    font-weight: 500;
+    background-color: transparent !important;
+  }
+  
+  /* Summary row */
+  .summary-row {
+    background-color: rgb(220, 227, 230) !important;
+    font-weight: 500;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .summary-title {
+    font-weight: 600;
+    padding-left: 24px;
+  }
+  
+  .summary-cell {
+    font-weight: 600;
+    background-color: transparent !important;
+  }
+  
+  /* No data message */
+  .no-data {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-style: italic;
+  }
+  
+  /* Results count */
+  .results-count {
+    margin-top: 15px;
+    text-align: right;
+    color: #666;
+    font-size: 0.9rem;
+  }

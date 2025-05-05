@@ -1,0 +1,182 @@
+/* TeacherLayout.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+}
+
+.teacher-layout {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #f5f7fa;
+}
+
+.teacher-content {
+  margin-left: 250px; /* Match expanded sidebar width */
+  transition: margin 0.3s ease;
+  width: calc(100% - 250px);
+  overflow: visible;
+  padding: 0;
+}
+
+/* Adjust margin when sidebar is collapsed */
+.teacher-sidebar.collapsed + .teacher-content {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+  padding: 0;
+}
+
+.teacher-header {
+  background-color: white;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px 0;
+}
+
+.main-content {
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 70px);
+}
+
+/* Card styling for content sections */
+.content-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #909090;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #606060;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #909090 transparent;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .teacher-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 0;
+  }
+  
+  .teacher-sidebar.collapsed + .teacher-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    padding: 0;
+  }
+  
+  .teacher-header {
+    padding: 0 20px;
+  }
+  
+  .main-content {
+    padding: 15px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .page-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .teacher-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .teacher-sidebar.expanded + .teacher-content {
+    margin-left: 0;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  .teacher-sidebar.collapsed + .teacher-content {
+    margin-left: 50px;
+    width: calc(100% - 50px);
+    opacity: 1;
+    pointer-events: all;
+    padding: 0;
+  }
+  
+  .teacher-header {
+    padding: 0 15px;
+    height: 60px;
+  }
+  
+  .main-content {
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .page-title {
+    font-size: 1.1rem;
+  }
+} 

@@ -1,0 +1,1424 @@
+/* ========== Space Neon Theme - Responsive ========== */
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #9900ff;
+  --neon-pink: #ff00e6;
+  --neon-green: #00ff9f;
+  --dark-space: #0a0a18;
+  --space-bg: #05051a;
+  --star-color: #ffffff;
+  --glow-intensity: 10px;
+  --font-thai: 'Prompt', sans-serif;
+}
+
+/* ========== Space Background Animation ========== */
+.space-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--dark-space), var(--space-bg));
+  z-index: -1;
+  overflow: hidden;
+}
+
+.space-background::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, transparent 20%, var(--space-bg) 70%);
+  animation: space-rotate 20s linear infinite;
+}
+
+@keyframes space-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== Enhanced Star Animation ========== */
+.star {
+  position: absolute;
+  background-color: var(--star-color);
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
+  box-shadow: 0 0 5px var(--star-color);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Create more dynamic stars */
+.star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+.star:nth-child(2) { top: 30%; left: 85%; width: 1px; height: 1px; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 60%; left: 40%; width: 3px; height: 3px; animation-delay: 1s; }
+.star:nth-child(4) { top: 15%; left: 70%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 75%; left: 10%; width: 2px; height: 2px; animation-delay: 2s; }
+.star:nth-child(6) { top: 45%; left: 50%; width: 1px; height: 1px; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 90%; left: 35%; width: 2px; height: 2px; animation-delay: 1.2s; }
+.star:nth-child(8) { top: 20%; left: 25%; width: 3px; height: 3px; animation-delay: 0.7s; }
+.star:nth-child(9) { top: 80%; left: 65%; width: 1px; height: 1px; animation-delay: 0.3s; }
+.star:nth-child(10) { top: 50%; left: 80%; width: 2px; height: 2px; animation-delay: 1.8s; }
+
+/* ========== Enhanced Auth Container ========== */
+.auth-container {
+  background-color: rgba(10, 10, 24, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 
+    0 0 20px rgba(0, 243, 255, 0.3),
+    0 0 40px rgba(153, 0, 255, 0.2),
+    inset 0 0 15px rgba(0, 0, 0, 0.5);
+  padding: 35px 30px;
+  width: 400px;
+  max-width: 95%;
+  margin: 50px auto;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: container-float 6s ease-in-out infinite;
+}
+
+@keyframes container-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 243, 255, 0.05),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: light-sweep 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes light-sweep {
+  0% {
+    top: -50%;
+    left: -50%;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+/* ========== Enhanced Button Effects ========== */
+button[type="submit"], 
+.signup-btn, 
+.sign-in-btn, 
+.success-button {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* ========== Enhanced Form Elements ========== */
+.form-group {
+  margin-bottom: 22px;
+  position: relative;
+  color: var(--neon-blue);
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #ffffff !important;  /* สีขาวธรรมดา */
+  transition: color 0.3s ease;
+  font-size: 15px;
+  text-align: left;
+  width: 94%;
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2px;
+}
+
+.form-group:hover label {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(10, 10, 24, 0.5);
+  border: 1.5px solid var(--neon-blue);
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.25);
+  max-width: 94%;
+  width: 360px;
+  height: 45px;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  box-shadow: 0 0 18px rgba(0, 243, 255, 0.5);
+  border-color: var(--neon-pink);
+  border-width: 2px;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ========== Enhanced Text Effects ========== */
+.neon-text-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+/* ========== พื้นฐาน (Base Styles) ========== */
+
+/* Google Button Styling */
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 70%;
+  max-width: 340px;
+  padding: 14px 20px;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  font-weight: 600;
+  margin: 25px auto 0;
+}
+
+.google-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.google-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ========== Auth Container ========== */
+/* Update this section in your CSS file */
+.auth-container h1,
+.auth-container h2,
+.ลงทะเบียนสำหรับนักเรียน,
+.auth-container .registration-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(0, 243, 255, 0.5);
+  letter-spacing: 0.5px;
+  font-size: 22px;
+}
+
+/* ========== Center Wrapper for Better Alignment ========== */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* ========== User Type Selector ========== */
+.user-type-selector {
+  text-align: center;
+  padding: 30px 25px;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 
+    0 0 15px var(--neon-blue),
+    0 0 30px rgba(0, 243, 255, 0.2),
+    inset 0 0 15px rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  max-width: 95%;
+  width: 400px;
+  min-height: 200px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-type-selector h2,
+.เลือกประเภทผู้ใช้ {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 
+    0 0 5px var(--neon-blue),
+    0 0 15px var(--neon-blue),
+    0 0 25px var(--neon-blue);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.user-type-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 
+      0 0 15px var(--neon-blue),
+      0 0 30px rgba(0, 243, 255, 0.2),
+      inset 0 0 15px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px var(--neon-blue),
+      0 0 40px rgba(0, 243, 255, 0.4),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 
+      0 0 15px var(--neon-blue),
+      0 0 30px rgba(0, 243, 255, 0.2),
+      inset 0 0 15px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Teacher Button */
+.teacher-button {
+  background-color: rgba(153, 0, 255, 0.1);
+  color: var(--neon-purple);
+  border: 2px solid var(--neon-purple);
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(153, 0, 255, 0.4);
+  text-shadow: 0 0 5px var(--neon-purple);
+  min-width: 120px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-button:hover, .teacher-button:focus {
+  color: white;
+  box-shadow: 0 0 20px var(--neon-purple);
+  text-shadow: 0 0 10px white;
+  transform: translateY(-5px);
+}
+
+/* Student Button */
+.student-button {
+  background-color: rgba(0, 255, 159, 0.1);
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 255, 159, 0.4);
+  text-shadow: 0 0 5px var(--neon-green);
+  min-width: 120px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-button:hover, .student-button:focus {
+  color: white;
+  box-shadow: 0 0 20px var(--neon-green);
+  text-shadow: 0 0 10px white;
+  transform: translateY(-5px);
+}
+
+/* ========== Buttons ========== */
+button {
+  cursor: pointer;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-thai);
+}
+
+button[type="submit"], 
+.signup-btn, 
+.sign-in-btn, 
+.success-button,
+.เข้าสู่ระบบ,
+.ลงทะเบียน {
+  width: 70%;
+  max-width: 340px;
+  padding: 14px 20px;
+  margin: 30px auto 0;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+  background-color: rgba(0, 243, 255, 0.15);
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+button[type="submit"]:hover, 
+.signup-btn:hover, 
+.sign-in-btn:hover, 
+.success-button:hover,
+.เข้าสู่ระบบ:hover,
+.ลงทะเบียน:hover {
+  background-color: rgba(0, 243, 255, 0.25);
+  color: white;
+  box-shadow: 0 0 20px var(--neon-blue);
+  text-shadow: 0 0 8px white;
+  transform: translateY(-3px);
+  border-color: white;
+}
+
+button[disabled] {
+  background-color: rgba(150, 150, 150, 0.2);
+  border-color: rgba(150, 150, 150, 0.5);
+  color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+  cursor: not-allowed;
+  text-shadow: none;
+}
+
+/* Back button with explicitly no animations or transitions */
+.back-button {
+  background: transparent !important;
+  color: var(--neon-blue);
+  text-shadow: 0 0 3px var(--neon-blue);
+  border: none;
+  position: relative;
+  left: -20px;
+  top: -10px;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.back-button:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 3px var(--neon-pink);
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* ========== Links ========== */
+.signup-link, 
+.signin-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.login-link{
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-link a, 
+.signin-link a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+  text-shadow: 0 0 3px var(--neon-blue);
+}
+
+.signup-link a:hover, 
+.signin-link a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.signup-link a::after, 
+.signin-link a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--neon-pink);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.signup-link a:hover::after, 
+.signin-link a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Fix transparent background for text buttons */
+.text-button {
+  background: transparent !important;
+  border: none;
+  color: var(--neon-blue);
+  padding: 5px 0;
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 0 0 3px var(--neon-blue);
+}
+
+.text-button:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.forgot-password {
+  display: block;
+  width: auto;
+  margin: 10px 0; /* Change from margin: 10px auto; to align left */
+  text-align: left; /* Change from text-align: center; to align left */
+  padding-left: 5px; /* Add some padding to align with form elements */
+}
+.signup-link .text-button, 
+.signin-link .text-button {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+/* Fix divider */
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 42%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* ========== Messages ========== */
+.error-message {
+  background-color: rgba(255, 0, 76, 0.1);
+  color: #ff004c;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid #ff004c;
+  box-shadow: 0 0 10px rgba(255, 0, 76, 0.3);
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 5px rgba(255, 0, 76, 0.3);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(255, 0, 76, 0.5);
+  }
+}
+
+.success-message {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: rgba(0, 255, 159, 0.1);
+  border: 1px solid var(--neon-green);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 255, 159, 0.3);
+  animation: success-glow 2s infinite alternate;
+}
+
+@keyframes success-glow {
+  from {
+    box-shadow: 0 0 10px rgba(0, 255, 159, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0, 255, 159, 0.6);
+  }
+}
+
+.success-message h2 {
+  color: var(--neon-green);
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* ========== Special Effects ========== */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-element {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ========== Teacher-specific styles ========== */
+.teacher-form {
+  border-left: 3px solid var(--neon-purple);
+  padding-left: 15px;
+  margin-left: 5px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.teacher-form button[type="submit"] {
+  background-color: rgba(153, 0, 255, 0.1);
+  border-color: var(--neon-purple);
+  color: var(--neon-purple);
+  text-shadow: 0 0 5px var(--neon-purple);
+  box-shadow: 0 0 10px rgba(153, 0, 255, 0.3);
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.teacher-form button[type="submit"]:hover {
+  background-color: rgba(153, 0, 255, 0.2);
+  box-shadow: 0 0 15px var(--neon-purple);
+  text-shadow: 0 0 8px white;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* ลงทะเบียนครู */
+.teacher-signup {
+  margin-top: -15px;
+}
+
+.teacher-signup h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.teacher-signup .form-group {
+  margin-bottom: 6px;
+}
+
+.teacher-signup .form-group label {
+  margin-bottom: 2px;
+  font-size: 14px;
+  width: 94%;
+  width: 340px;
+}
+
+.teacher-signup .form-group input {
+  height: 32px;
+  padding: 6px 14px;
+  font-size: 14px;
+  width: 94%;
+  width: 340px;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.teacher-signup .form-group input:focus {
+  box-shadow: 0 0 18px rgba(0, 243, 255, 0.5);
+  border-color: var(--neon-pink);
+  border-width: 2px;
+  transform: none !important;
+  outline: none;
+  transition: none !important;
+  animation: none !important;
+}
+
+.teacher-signup .form-group small {
+  display: block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 94%;
+  width: 340px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
+  padding-left: 2px;
+}
+
+.teacher-signup .divider {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.teacher-signup .signup-btn,
+.teacher-signup .google-button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  height: 36px;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.teacher-signup .signup-btn:hover,
+.teacher-signup .google-button:hover {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+  background-color: rgba(153, 0, 255, 0.2);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.teacher-signup .google-button {
+  height: 38px;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.teacher-signup .signin-link {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+@media (max-width: 575px) {
+  .teacher-signup {
+    margin-top: -5px;
+  }
+  
+  .teacher-signup h2 {
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+  
+  .teacher-signup .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .teacher-signup .form-group small {
+    width: 90%;
+    width: 330px;
+    font-size: 11px;
+    margin-top: 3px;
+  }
+  
+  .teacher-signup .divider {
+    margin: 10px 0;
+  }
+  
+  .teacher-signup .signup-btn {
+    margin-top: 15px;
+  }
+  
+  .teacher-signup .google-button {
+    margin-top: 12px;
+  }
+  
+  .teacher-signup .signin-link {
+    margin-top: 15px;
+  }
+}
+
+/* ========== Student-specific styles ========== */
+.student-form {
+  border-left: 3px solid var(--neon-green);
+  padding-left: 15px;
+  margin-left: 5px;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.student-form button[type="submit"] {
+  display: block;
+  width: 60%;
+  margin: 20px auto 0;
+  background-color: rgba(0, 255, 159, 0.1);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 159, 0.3);
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.student-form button[type="submit"]:hover {
+  background-color: rgba(0, 255, 159, 0.2);
+  box-shadow: 0 0 15px var(--neon-green);
+  text-shadow: 0 0 8px white;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Style for the primary button (ลงทะเบียน) */
+button.primary-button[type="submit"] {
+  display: block;
+  width: 60%;
+  margin: 20px auto 0;
+  text-align: center;
+  background-color: rgba(0, 255, 159, 0.1);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 159, 0.3);
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+button.primary-button[type="submit"]:hover {
+  background-color: rgba(0, 255, 159, 0.2);
+  box-shadow: 0 0 15px var(--neon-green);
+  text-shadow: 0 0 8px white;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* ========== Star Background Animation ========== */
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Create stars of different sizes and positions */
+.star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+.star:nth-child(2) { top: 30%; left: 85%; width: 1px; height: 1px; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 60%; left: 40%; width: 3px; height: 3px; animation-delay: 1s; }
+.star:nth-child(4) { top: 15%; left: 70%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 75%; left: 10%; width: 2px; height: 2px; animation-delay: 2s; }
+.star:nth-child(6) { top: 45%; left: 50%; width: 1px; height: 1px; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 90%; left: 35%; width: 2px; height: 2px; animation-delay: 1.2s; }
+.star:nth-child(8) { top: 20%; left: 25%; width: 3px; height: 3px; animation-delay: 0.7s; }
+.star:nth-child(9) { top: 80%; left: 65%; width: 1px; height: 1px; animation-delay: 0.3s; }
+.star:nth-child(10) { top: 50%; left: 80%; width: 2px; height: 2px; animation-delay: 1.8s; }
+.star:nth-child(11) { top: 35%; left: 5%; width: 2px; height: 2px; animation-delay: 0.9s; }
+.star:nth-child(12) { top: 85%; left: 95%; width: 1px; height: 1px; animation-delay: 1.4s; }
+.star:nth-child(13) { top: 5%; left: 60%; width: 3px; height: 3px; animation-delay: 2.2s; }
+.star:nth-child(14) { top: 70%; left: 75%; width: 2px; height: 2px; animation-delay: 0.8s; }
+.star:nth-child(15) { top: 40%; left: 15%; width: 1px; height: 1px; animation-delay: 1.7s; }
+.star:nth-child(16) { top: 25%; left: 45%; width: 3px; height: 3px; animation-delay: 0.4s; }
+.star:nth-child(17) { top: 65%; left: 30%; width: 2px; height: 2px; animation-delay: 2.3s; }
+.star:nth-child(18) { top: 55%; left: 55%; width: 1px; height: 1px; animation-delay: 1.1s; }
+.star:nth-child(19) { top: 95%; left: 90%; width: 2px; height: 2px; animation-delay: 0.6s; }
+.star:nth-child(20) { top: 15%; left: 80%; width: 3px; height: 3px; animation-delay: 1.3s; }
+
+/* ========== Responsive ========== */
+/* Large Desktop */
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .form-group input,
+  .form-group select {
+    padding: 16px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    padding: 14px 22px;
+    font-size: 16px;
+    width: 60%;
+  }
+  
+  .google-button {
+    width: 60%;
+    padding: 14px 22px;
+  }
+}
+
+/* Medium Desktop and Tablet Landscape */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .user-type-selector {
+    max-width: 95%;
+    width: 400px;
+    min-height: 200px;
+    padding: 35px 40px;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  
+  .auth-container {
+    width: 400px;
+    padding: 35px 40px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 15px 18px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    width: 65%;
+    padding: 15px 22px;
+  }
+  
+  .google-button {
+    width: 65%;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .user-type-selector {
+    max-width: 95%;
+    width: 400px;
+    min-height: 200px;
+    padding: 30px 35px;
+    margin: 40px auto;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  
+  .teacher-button, .student-button {
+    padding: 13px 24px;
+    font-size: 17px;
+    min-width: 130px;
+  }
+  
+  .auth-container {
+    width: 400px;
+    padding: 30px 35px;
+    margin: 40px auto;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    width: 75%;
+    padding: 12px 18px;
+  }
+  
+  .google-button {
+    width: 75%;
+    padding: 12px 18px;
+  }
+}
+
+/* Mobile Landscape and Small Tablet */
+@media (min-width: 576px) and (max-width: 767px) {
+  .user-type-selector {
+    width: 90%;
+    min-height: 200px;
+    padding: 30px;
+    margin: 45px auto;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .user-type-buttons {
+    gap: 20px;
+  }
+  
+  .teacher-button, .student-button {
+    padding: 12px 22px;
+    font-size: 16px;
+    min-width: 120px;
+  }
+  
+  .auth-container {
+    width: 90%;
+    padding: 25px;
+    margin: 40px auto;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    width: 75%;
+    padding: 12px 18px;
+  }
+  
+  .google-button {
+    width: 75%;
+    padding: 12px 18px;
+  }
+  
+  .student-form button[type="submit"],
+  button.primary-button[type="submit"],
+  .เข้าสู่ระบบ.student-button,
+  .ลงทะเบียน.student-button {
+    width: 80%;
+  }
+}
+
+/* Mobile Portrait - Most Important Improvements */
+@media (max-width: 575px) {
+  .user-type-selector {
+    width: 95%;
+    min-height: 180px;
+    padding: 22px 18px;
+    margin: 20px auto;
+    border-radius: 12px;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .user-type-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  
+  .teacher-button, .student-button {
+    padding: 10px 18px;
+    font-size: 15px;
+    min-width: 160px;
+    width: 80%;
+  }
+  
+  .auth-container {
+    padding: 20px 15px;
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 18px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    max-width: 95%;
+    width: 330px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 10px 14px;
+    font-size: 14px;
+    height: 42px;
+    max-width: 95%;
+    width: 330px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    width: 80%;
+    padding: 12px 15px;
+    font-size: 15px;
+    margin-top: 20px;
+    max-width: 320px;
+  }
+  
+  .google-button {
+    width: 80%;
+    padding: 12px 15px;
+    max-width: 320px;
+  }
+  
+  .student-form button[type="submit"],
+  button.primary-button[type="submit"],
+  .เข้าสู่ระบบ.student-button,
+  .ลงทะเบียน.student-button {
+    width: 80%;
+  }
+  
+  .back-button {
+    font-size: 14px;
+    left: -10px;
+    top: -5px;
+  }
+  
+  .signup-link, 
+  .signin-link,
+  .login-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .auth-container h1,
+  .auth-container h2,
+  .ลงทะเบียนสำหรับนักเรียน,
+  .auth-container .registration-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 375px) {
+  .user-type-selector {
+    width: 94%;
+    min-height: 160px;
+    padding: 18px 15px;
+    margin: 20px auto;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .teacher-button, .student-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    min-width: 140px;
+    width: 85%;
+  }
+  
+  .auth-container {
+    padding: 15px 12px;
+    width: 94%;
+    margin: 20px auto;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 92%;
+    max-width: 300px;
+  }
+  
+  .form-group label {
+    width: 92%;
+    max-width: 300px;
+  }
+  
+  button[type="submit"], 
+  .signup-btn, 
+  .sign-in-btn, 
+  .success-button,
+  .เข้าสู่ระบบ,
+  .ลงทะเบียน {
+    width: 90%;
+    padding: 10px 15px;
+    font-size: 14px;
+    max-width: 290px;
+  }
+  
+  .google-button {
+    width: 90%;
+    padding: 10px 15px;
+    max-width: 290px;
+  }
+  
+  .student-form button[type="submit"],
+  button.primary-button[type="submit"],
+  .เข้าสู่ระบบ.student-button,
+  .ลงทะเบียน.student-button {
+    width: 90%;
+  }
+}
+
+/* Better landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .App {
+    padding: 10px;
+    align-items: center;
+  }
+  
+  .user-type-selector {
+    margin: 0 auto;
+    min-height: 150px;
+    padding: 20px;
+  }
+  
+  .user-type-selector h2,
+  .เลือกประเภทผู้ใช้ {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .user-type-buttons {
+    flex-direction: row;
+    gap: 25px;
+    margin-top: 10px;
+  }
+  
+  .teacher-button, .student-button {
+    padding: 8px 16px;
+    min-width: 120px;
+  }
+  
+  .auth-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 12px;
+  }
+}
+
+/* Apply neon text effect to Thai text */
+.neon-text-blue {
+  color: var(--neon-blue);
+  text-shadow: 
+    0 0 5px var(--neon-blue),
+    0 0 10px var(--neon-blue);
+}
+
+.neon-text-purple {
+  color: var(--neon-purple);
+  text-shadow: 
+    0 0 5px var(--neon-purple),
+    0 0 10px var(--neon-purple);
+}
+
+.neon-text-green {
+  color: var(--neon-green);
+  text-shadow: 
+    0 0 5px var(--neon-green),
+    0 0 10px var(--neon-green);
+}
+
+/* Desktop and tablet optimizations */
+@media (min-width: 768px) {
+  .form-group input,
+  .form-group select {
+    max-width: 94%;
+    width: 360px;
+    height: 48px;
+  }
+
+  .form-group label {
+    width: 94%;
+    width: 360px;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 992px) {
+  .form-group input,
+  .form-group select {
+    max-width: 94%;
+    width: 370px;
+    padding: 16px 18px;
+    font-size: 16px;
+    height: 50px;
+  }
+
+  .form-group label {
+    width: 94%;
+    width: 370px;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Student login button (blue) adjustments */
+.เข้าสู่ระบบ {
+  background-color: rgba(0, 243, 255, 0.15);
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  max-width: 85%;
+  width: 340px;
+}
+
+/* Specific adjustments for the login and registration pages */
+button.ลงทะเบียนด้วยอีเมล,
+button.เข้าสู่ระบบด้วยอีเมล {
+  max-width: 85%;
+  width: 340px;
+}
+
+/* เพิ่มสไตล์เฉพาะสำหรับ auth-container เมื่อแสดงฟอร์มลงทะเบียนครู */
+.auth-container:has(.teacher-signup) {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.auth-container:has(.teacher-signup)::before {
+  animation: none !important;
+}
+
+/* แก้ไขตำแหน่ง back button เมื่ออยู่ในหน้าลงทะเบียนครู */
+.auth-container:has(.teacher-signup) .back-button {
+  top: -2px;
+  left: -15px;
+}
+
+/* ปรับขนาด auth-container ในมือถือเมื่อแสดงฟอร์มลงทะเบียนครู */
+@media (max-width: 575px) {
+  .auth-container:has(.teacher-signup) {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .auth-container:has(.teacher-signup) .back-button {
+    top: -2px;
+  }
+}
+
+/* Also override any container animations for teacher registration */
+.auth-container:has(.teacher-signup) {
+  animation: none !important;
+}
+
+/* Remove float animation for teacher signup elements */
+.teacher-signup .floating-element {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+

@@ -1,0 +1,2186 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #4895ef;
+  --secondary-color: #3ccfcf;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --dark-color: #333333;
+  --light-color: #f8f9fa;
+  --gray-color: #6c757d;
+  --border-radius: 8px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+body {
+  background-color: #f5f7fb;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  display: flex !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: visible !important;
+  background-color: #f5f7fb;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 240px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: #fff;
+  transition: width var(--transition-speed) ease;
+  position: fixed !important;
+  z-index: 100;
+  height: 100vh !important;
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.dashboard-sidebar.collapsed {
+  width: 70px;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  z-index: 101;
+  transition: all 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(180deg);
+}
+
+/* Navigation */
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 60px;
+}
+
+.dashboard-nav-list {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.dashboard-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  margin-bottom: 8px;
+  border-radius: 0 30px 30px 0;
+}
+
+.dashboard-nav-item i {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.dashboard-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.dashboard-nav-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 500;
+  border-left: 3px solid #ffffff;
+}
+
+/* Nav Footer / Logout */
+.mt-auto {
+  margin-top: auto;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem;
+}
+
+.text-red-500 {
+  color: #ff6b6b !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+/* Main Content */
+.dashboard-content {
+  flex: 1 !important;
+  min-height: 100vh !important;
+  padding: 20px 30px !important;
+  transition: margin-left var(--transition-speed) ease;
+  position: relative !important;
+  background-color: #f9fafb;
+  margin-left: 240px;
+  width: calc(100% - 240px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.dashboard-content.expanded {
+  margin-left: 70px;
+  width: calc(100% - 70px) !important;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  width: 100% !important;
+  position: relative;
+}
+
+.dashboard-title {
+  font-size: 1.6rem !important;
+  color: #333;
+  font-weight: 600 !important;
+  text-align: center !important;
+  flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.profile-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Card */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  padding: 30px !important;
+  margin: 20px;
+  width: calc(100% - 40px) !important;
+  max-width: none !important;
+  overflow: visible !important;
+  min-height: auto !important;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lesson List */
+.lesson-list {
+  width: 100% !important;
+  max-width: 1400px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: visible !important;
+  height: auto !important;
+  padding: 20px 0 !important;
+}
+
+/* Lesson Cards Container Adjustment */
+.lesson-cards {
+  margin-top: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap: 25px !important;
+  width: 100% !important;
+  max-width: 1300px !important;
+  overflow: visible !important;
+  padding-bottom: 50px !important;
+}
+
+/* Modal Overlay - Fix for full screen coverage */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5vh 0;
+  z-index: 1000;
+  animation: fadeIn 0.35s ease;
+  overflow-y: auto;
+}
+
+.modal {
+  background-color: #fff;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  width: 92% !important;
+  max-width: 900px !important;
+  animation: slideFromTop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  margin: 3vh auto !important;
+}
+
+.modal.closing {
+  animation: slideToBottom 0.3s ease-in forwards;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+  padding: 20px 25px !important;
+  color: white;
+  border-radius: 12px 12px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.modal-header h2 {
+  font-size: 1.4rem !important;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.close-modal-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+}
+
+.close-modal-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+.modal-footer {
+  padding: 20px 25px !important;
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  gap: 12px !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  position: sticky !important;
+  bottom: 0 !important;
+  z-index: 10;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+/* Modal content layout improvements */
+.modal-content {
+  padding: 30px !important;
+  max-height: 70vh !important;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Add visual cue for required fields */
+.form-group.required label:after {
+  content: ' *';
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* Help text styling improvement */
+.help-text {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 8px;
+  font-style: italic;
+  padding-left: 2px;
+}
+
+/* Animation for question card appearance */
+.question-card {
+  animation: slideFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.question-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.question-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.question-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.question-card:nth-child(n+5) {
+  animation-delay: 0.4s;
+}
+
+/* Enhanced Form Layout for Add/Edit Lesson Modals */
+.add-lesson-modal .form-group,
+.edit-lesson-modal .form-group {
+  margin-bottom: 28px;
+  position: relative;
+  width: 95%;
+  max-width: 700px;
+}
+
+.add-lesson-modal label,
+.edit-lesson-modal label {
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+  display: block;
+  font-weight: 500;
+  color: #334155;
+}
+
+.add-lesson-modal label i,
+.edit-lesson-modal label i {
+  margin-right: 8px;
+  color: #4361ee;
+}
+
+.add-lesson-modal .form-control,
+.edit-lesson-modal .form-control {
+  padding: 16px;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #000 !important;
+}
+
+.add-lesson-modal textarea.form-control,
+.edit-lesson-modal textarea.form-control {
+  min-height: 250px;
+  padding: 18px;
+  line-height: 1.6;
+  resize: vertical;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  color: #000 !important;
+}
+
+.add-lesson-modal textarea.form-control:focus,
+.edit-lesson-modal textarea.form-control:focus {
+  border-color: #4361ee;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+  outline: none;
+}
+
+/* Center the teacher info section */
+.add-lesson-modal .teacher-info,
+.edit-lesson-modal .teacher-info {
+  width: 95%;
+  max-width: 700px;
+  background-color: #f1f5f9;
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 4px solid #4361ee;
+  margin-top: 10px;
+}
+
+/* Adjust AR links dropdown to fit with new width */
+.ar-link-container {
+  position: relative;
+  width: 100%;
+}
+
+.ar-links-dropdown {
+  width: 100%;
+  z-index: 1001;
+}
+
+/* Modal size adjustments */
+.add-lesson-modal,
+.edit-lesson-modal {
+  width: 95%;
+  max-width: 850px;
+}
+
+/* Enhanced Modal for Questions Management */
+.edit-questions-modal,
+.edit-pre-quiz-modal {
+  width: 95%;
+  max-width: 900px;
+}
+
+.edit-questions-modal .modal-content,
+.edit-pre-quiz-modal .modal-content {
+  padding: 30px;
+  align-items: center;
+}
+
+.edit-questions-modal .modal-header,
+.edit-pre-quiz-modal .modal-header {
+  background: linear-gradient(135deg, #4338ca, #3b82f6);
+  padding: 20px 25px;
+}
+
+.edit-questions-modal .modal-header h2,
+.edit-pre-quiz-modal .modal-header h2 {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-questions-modal .modal-footer,
+.edit-pre-quiz-modal .modal-footer {
+  padding: 20px 25px;
+  gap: 15px;
+}
+
+.edit-questions-modal .btn,
+.edit-pre-quiz-modal .btn {
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.edit-questions-modal .btn:hover,
+.edit-pre-quiz-modal .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-questions-modal .btn i,
+.edit-pre-quiz-modal .btn i {
+  font-size: 1.1rem;
+}
+
+.edit-questions-modal .btn-success,
+.edit-pre-quiz-modal .btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+}
+
+.edit-questions-modal .btn-primary,
+.edit-pre-quiz-modal .btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  border: none;
+}
+
+.edit-questions-modal .btn-danger,
+.edit-pre-quiz-modal .btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+}
+
+.edit-questions-modal .btn-warning,
+.edit-pre-quiz-modal .btn-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+}
+
+/* Question number styling in modal */
+.question-count-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* Form control within question management */
+.edit-questions-modal .form-control,
+.edit-pre-quiz-modal .form-control {
+  padding: 16px;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.edit-questions-modal .form-control:focus,
+.edit-pre-quiz-modal .form-control:focus {
+  border-color: #4361ee;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+  outline: none;
+}
+
+/* Question Input Enhanced for การจัดการคำถาม */
+.question-text-input {
+  font-size: 1.2rem !important;
+  padding: 16px !important;
+  border-width: 2px !important;
+  border-radius: 10px !important;
+  min-height: 100px !important;
+  resize: vertical !important;
+  width: 100% !important;
+  line-height: 1.6 !important;
+  color: #000 !important;
+}
+
+/* Styling for the quiz choices */
+.option-row {
+  position: relative;
+}
+
+.option-number {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #4361ee;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.correct-answer {
+  background-color: #bbf7d0 !important;
+  border-color: #4ade80 !important;
+}
+
+.correct-answer .radio-label {
+  background-color: #86efac;
+  color: #166534;
+  font-weight: 600;
+}
+
+/* Custom styling for different modal states */
+.quiz-management-section {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Additional animation for card entrance */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.question-card {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+/* Fancy divider between questions */
+.question-divider {
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  position: relative;
+  text-align: center;
+}
+
+.question-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+}
+
+.question-divider-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  background: white;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Custom drag handle for question reordering */
+.drag-handle {
+  cursor: grab;
+  width: 30px;
+  height: 30px;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  margin-right: 10px;
+}
+
+.drag-handle:hover {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+/* Ensure question form group has proper spacing */
+.question-card .form-group {
+  margin-bottom: 25px;
+  width: 100% !important;
+}
+
+/* Make question container wider */
+.question-card {
+  width: 100% !important;
+  max-width: 900px !important;
+}
+
+/* Ensure modal content is wide enough */
+.edit-questions-modal .modal-content,
+.edit-pre-quiz-modal .modal-content {
+  width: 100% !important;
+  max-width: 950px !important;
+}
+
+/* Wider modal for questions */
+.edit-questions-modal,
+.edit-pre-quiz-modal {
+  width: 95% !important;
+  max-width: 1000px !important;
+}
+
+/* Improve Quiz Modal Layout */
+.modal.edit-questions-modal .modal-content,
+.modal.edit-pre-quiz-modal .modal-content {
+  padding: 30px;
+  max-width: 1000px;
+}
+
+/* Make textareas more suitable for long content */
+textarea.form-control {
+  line-height: 1.7;
+  font-size: 1.05rem !important;
+}
+
+/* Create more space for the question content */
+.question-card {
+  padding: 35px !important;
+}
+
+/* Make modal larger for better question display */
+.modal-overlay {
+  padding: 3vh 0;
+}
+
+/* Ensure the options section is clearly separated */
+.question-card h4 {
+  margin-top: 30px !important;
+  padding-top: 15px !important;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Enhanced Empty State */
+.empty-questions {
+  padding: 80px 35px !important;
+}
+
+/* Enhanced Button Styles */
+.btn {
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+  min-width: 120px;
+  text-transform: none;
+  letter-spacing: 0.2px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn i {
+  font-size: 1.1rem;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4338ca, #3730a3);
+}
+
+/* Success Button */
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* Warning Button */
+.btn-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+/* Danger Button */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #4b5563, #374151);
+}
+
+/* Info Button */
+.btn-info {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+}
+
+.btn-info:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+/* Modal Footer Buttons */
+.modal-footer .btn {
+  min-width: 140px;
+  padding: 12px 24px;
+}
+
+/* Add New Button */
+.add-new-button {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  padding: 14px 28px !important;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem !important;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
+}
+
+.add-new-button:hover {
+  background: linear-gradient(135deg, #4338ca, #3730a3);
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.35) !important;
+}
+
+.add-new-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* These styles have been moved to the top section */
+
+/* Centered buttons in modals */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 30px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Special buttons in modal footers */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-actions-left {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-actions-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* Modal Form Buttons at Bottom */
+.modal-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Buttons in Add/Edit Forms */
+.add-lesson-modal .modal-footer .btn,
+.edit-lesson-modal .modal-footer .btn,
+.edit-questions-modal .modal-footer .btn,
+.edit-pre-quiz-modal .modal-footer .btn {
+  min-width: 160px;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Add animation to buttons */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  50% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  }
+  100% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.btn-primary:hover, 
+.btn-success:hover {
+  animation: buttonPulse 1.5s infinite;
+}
+
+/* Add New Question Button */
+.btn-add-question {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.25);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-add-question:hover {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-add-question i {
+  font-size: 1.2rem;
+}
+
+/* Modal Button Containers */
+.modal-footer-expanded {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+/* Increased specificity for modal buttons */
+.modal .modal-footer .btn {
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+/* Improved Modal Action Buttons in Thai */
+button[type="button"]:contains("บันทึกบทเรียน"),
+button[type="button"]:contains("บันทึกการเปลี่ยนแปลง"),
+button[type="submit"]:contains("บันทึกบทเรียน"),
+button[type="submit"]:contains("บันทึกการเปลี่ยนแปลง") {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+button[type="button"]:contains("บันทึกบทเรียน"):hover,
+button[type="button"]:contains("บันทึกการเปลี่ยนแปลง"):hover,
+button[type="submit"]:contains("บันทึกบทเรียน"):hover,
+button[type="submit"]:contains("บันทึกการเปลี่ยนแปลง"):hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+}
+
+button[type="button"]:contains("ยกเลิก"),
+button[type="button"]:contains("ปิด") {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+}
+
+button[type="button"]:contains("ยกเลิก"):hover,
+button[type="button"]:contains("ปิด"):hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+}
+
+button[type="button"]:contains("จัดการคำถาม"),
+button[type="button"]:contains("แก้ไขบทเรียน"),
+button[type="button"]:contains("แบบทดสอบก่อนเรียน") {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.25);
+}
+
+button[type="button"]:contains("จัดการคำถาม"):hover,
+button[type="button"]:contains("แก้ไขบทเรียน"):hover,
+button[type="button"]:contains("แบบทดสอบก่อนเรียน"):hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
+}
+
+button[type="button"]:contains("เพิ่มคำถามใหม่") {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+}
+
+button[type="button"]:contains("เพิ่มคำถามใหม่"):hover {
+  background: linear-gradient(135deg, #4338ca, #3730a3);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* Add New Lesson Button Enhancement */
+.add-new-button {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  padding: 14px 28px !important;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem !important;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
+}
+
+/* Fix button that says 'เพิ่มบทเรียนใหม่' */
+button:contains("เพิ่มบทเรียนใหม่") {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  padding: 14px 28px !important;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button:contains("เพิ่มบทเรียนใหม่"):hover {
+  background: linear-gradient(135deg, #4338ca, #3730a3);
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.35) !important;
+}
+
+/* Bottom action buttons in modals */
+.modal-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Special styling for specific modal buttons (screenshot specific) */
+button:contains("บันทึกบทเรียน"),
+button:contains("บันทึกการเปลี่ยนแปลง") {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+button:contains("บันทึกการเปลี่ยนแปลง"):hover,
+button:contains("บันทึกบทเรียน"):hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Quiz Question Editor Buttons */
+button:contains("เพิ่มคำถามใหม่"),
+button:contains("บันทึกการเปลี่ยนแปลง"),
+button:contains("แก้ไขบทเรียน"),
+button:contains("กลับไปแก้ไขบทเรียน"),
+button:contains("บันทึกบทเรียน"),
+button:contains("จัดการคำถาม"),
+button:contains("แบบทดสอบก่อนเรียน"),
+button:contains("ปิด"),
+button:contains("ยกเลิก") {
+  font-size: 1rem;
+  padding: 12px 24px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-width: 140px !important;
+  border: none !important;
+}
+
+/* Specific buttons from quiz question modals and pre-quiz modals */
+button:contains("เพิ่มคำถามใหม่") {
+  background: linear-gradient(135deg, #4f46e5, #4338ca) !important;
+  color: white !important;
+}
+
+button:contains("บันทึกการเปลี่ยนแปลง") {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: white !important;
+}
+
+button:contains("จัดการคำถาม") {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: white !important;
+}
+
+button:contains("กลับไปแก้ไขบทเรียน") {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: white !important;
+}
+
+button:contains("ปิด") {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: white !important;
+}
+
+/* Hover effects for quiz modal buttons */
+button:contains("เพิ่มคำถามใหม่"):hover,
+button:contains("บันทึกการเปลี่ยนแปลง"):hover,
+button:contains("จัดการคำถาม"):hover,
+button:contains("กลับไปแก้ไขบทเรียน"):hover,
+button:contains("ปิด"):hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Specific buttons in quiz info panel */
+.quiz-info-box {
+  border-left: 5px solid #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* Header buttons for modals */
+.modal-header {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+  padding: 20px 25px !important;
+}
+
+/* Bottom row buttons in modal screenshots */
+.modal-footer {
+  background: #f8fafc !important;
+  padding: 20px 25px !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 15px !important;
+}
+
+/* Add button for new questions */
+button:contains("เพิ่มคำถามใหม่") i {
+  font-size: 1.2rem !important;
+}
+
+/* Delete question button */
+.delete-question-btn {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.1) !important;
+  font-size: 1.1rem !important;
+}
+
+/* Action Buttons in the Bottom Row of Modals */
+.modal-footer button[type="button"],
+.modal-footer button[type="submit"] {
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.modal-footer button[type="button"]:hover,
+.modal-footer button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.modal-footer button[type="button"]:active,
+.modal-footer button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz Modal Footer Buttons */
+.edit-questions-modal .modal-footer,
+.edit-pre-quiz-modal .modal-footer {
+  padding: 20px 25px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  justify-content: space-between;
+}
+
+/* Specific Thai Language Button Styles */
+button:contains("บันทึกบทเรียน") i,
+button:contains("บันทึกการเปลี่ยนแปลง") i,
+button:contains("เพิ่มคำถามใหม่") i,
+button:contains("แก้ไขบทเรียน") i,
+button:contains("จัดการคำถาม") i,
+button:contains("ปิด") i,
+button:contains("ยกเลิก") i {
+  font-size: 1.15rem;
+}
+
+/* Fixed Save Button Location */
+.modal-footer button.btn-success {
+  order: -1;
+}
+
+/* Fixed Cancel Button Location */
+.modal-footer button.btn-danger {
+  order: 999;
+}
+
+/* Special Buttons in Lesson Editor */
+button:contains("จัดการคำถาม") {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+}
+
+button:contains("แบบทดสอบก่อนเรียน") {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+}
+
+button:contains("เพิ่มบทเรียนใหม่") i {
+  font-size: 1.2rem;
+}
+
+/* Buttons in Lesson Cards */
+.lesson-card .button-group button:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Added Styles for the Buttons at Bottom of Screenshots */
+button[type="button"]:contains("บันทึกการเปลี่ยนแปลง"),
+button[type="button"]:contains("บันทึกบทเรียน"),
+button[type="button"]:contains("บันทึกบทเรียน"),
+button[type="button"]:contains("ยกเลิก"),
+button[type="button"]:contains("ปิด") {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  min-width: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Add new button style enhancements */
+.add-new-button {
+  font-weight: 600;
+  font-size: 1.05rem !important;
+  box-shadow: 0 5px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Smaller buttons for mobile */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    min-width: 100px;
+  }
+  
+  .modal-footer .btn {
+    min-width: 120px;
+    padding: 10px 16px;
+  }
+  
+  .add-new-button {
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Remove existing slide animation keyframes */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+}
+
+/* Add new slide animations */
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideToBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideToTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* Apply new animations to modal */
+.modal {
+  animation: slideFromTop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal.closing {
+  animation: slideToBottom 0.3s ease-in forwards;
+}
+
+/* Apply new animations to lesson cards */
+.lesson-card {
+  animation: slideFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.lesson-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.lesson-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.lesson-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.lesson-card:nth-child(n+5) {
+  animation-delay: 0.4s;
+}
+
+/* Apply new animations to question cards */
+.question-card {
+  animation: slideFromBottom 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.question-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.question-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.question-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.question-card:nth-child(n+5) {
+  animation-delay: 0.4s;
+}
+
+/* Add smooth transitions for UI elements */
+.form-control, .option-row, .btn, .lesson-card, .question-card, .modal {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Add hover animations to action buttons */
+.btn:hover, .add-new-button:hover, .lesson-card .button-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active, .add-new-button:active, .lesson-card .button-group button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add animation to AR dropdown */
+.ar-links-dropdown {
+  animation: slideFromTop 0.3s ease-out;
+}
+
+/* Additional animation for card entrance */
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.question-card {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+/* Fancy divider between questions */
+.question-divider {
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  position: relative;
+  text-align: center;
+}
+
+/* Replace with new animation */
+.question-card {
+  animation: slideFromBottom 0.4s ease-out forwards;
+}
+
+/* Fancy divider between questions */
+.question-divider {
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  position: relative;
+  text-align: center;
+}
+
+/* Add scrolling fixes */
+/* Fix for scrolling issues */
+html, body {
+  height: 100%;
+  overflow-y: auto !important;
+}
+
+.lesson-manager {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow-y: visible;
+  padding-bottom: 60px;
+}
+
+.dashboard-content {
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  position: relative;
+}
+
+.lesson-cards {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  overflow: visible;
+}
+
+.lesson-card .button-group {
+  z-index: 1;
+}
+
+/* Make sure modals don't cause overflow issues */
+.modal-overlay {
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal {
+  margin: 3vh auto;
+  margin-bottom: 5vh;
+}
+
+/* Make sure the footer buttons in modals are visible */
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: #f8fafc;
+}
+
+/* Improve button layout in lesson cards */
+.lesson-card {
+  display: flex !important;
+  flex-direction: column !important;
+  padding-bottom: 30px !important;
+  min-height: 300px !important;
+}
+
+.lesson-card .button-group {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  gap: 10px !important;
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+.lesson-card .button-group button {
+  width: 100% !important;
+  min-height: 42px !important;
+  white-space: normal !important;
+  height: auto !important;
+  padding: 10px 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure the buttons are clickable and visible */
+.lesson-card .button-group button:last-child,
+.lesson-card .button-group button:nth-last-child(2) {
+  margin-bottom: 0 !important;
+}
+
+/* Adjust button text size for better readability */
+.lesson-card .button-group button {
+  font-size: 0.85rem !important;
+}
+
+/* Mobile-specific scrolling fixes */
+@media screen and (max-width: 768px) {
+  .lesson-card {
+    min-height: 350px !important;
+    padding-bottom: 35px !important;
+  }
+  
+  .lesson-cards {
+    padding-bottom: 60px;
+    margin-bottom: 50px;
+  }
+  
+  .lesson-manager {
+    padding-bottom: 80px;
+  }
+  
+  .lesson-card .button-group {
+    gap: 12px !important;
+  }
+  
+  .lesson-card .button-group button {
+    padding: 12px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .dashboard-content {
+    padding-bottom: 50px !important;
+  }
+}
+
+/* Fix for very small mobile screens */
+@media screen and (max-width: 480px) {
+  .lesson-card .button-group {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, auto) !important;
+  }
+  
+  .lesson-card {
+    min-height: 400px !important;
+  }
+}
+
+/* Layout Enhancements for Better Proportions and Visual Appeal */
+
+/* Improved main container proportions */
+.dashboard-content {
+  padding: 20px 30px !important;
+  background-color: #f9fafb;
+}
+
+/* Better lesson list container */
+.lesson-list {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 20px 0 !important;
+}
+
+/* Enhanced page header */
+.lesson-list h2 {
+  font-size: 1.7rem !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 30px !important;
+  padding-left: 0 !important;
+  position: relative;
+}
+
+.lesson-list h2:after {
+  content: '';
+  position: absolute;
+  width: 60px !important;
+  height: 4px !important;
+  background: linear-gradient(to right, #4361ee, #3b82f6) !important;
+  left: 0 !important;
+  bottom: -10px !important;
+  border-radius: 2px !important;
+}
+
+/* Improved action buttons container */
+.action-buttons {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Better lesson card grid */
+.lesson-cards {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap: 25px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Enhanced lesson card design */
+.lesson-card {
+  background-color: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  padding: 25px !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+  border: 1px solid #eaedf2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 320px !important;
+  overflow: visible !important;
+}
+
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, #4361ee, #3b82f6);
+  border-radius: 12px 12px 0 0;
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Better card title */
+.lesson-card h3 {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 15px !important;
+  line-height: 1.3 !important;
+}
+
+/* Improved card content */
+.lesson-card p {
+  color: #64748b !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 10px !important;
+  line-height: 1.5 !important;
+}
+
+/* Better button layout in cards */
+.lesson-card .button-group {
+  margin-top: auto !important;
+  padding-top: 20px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  gap: 12px !important;
+}
+
+.lesson-card .button-group button {
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s !important;
+  min-height: 42px !important;
+}
+
+/* Better button colors */
+.lesson-card .button-group button i {
+  margin-right: 6px !important;
+  font-size: 0.9rem !important;
+}
+
+.lesson-card .button-group .edit-button {
+  background: linear-gradient(135deg, #3ccfcf, #2BA7A7) !important;
+}
+
+.lesson-card .button-group button:nth-child(2) {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+}
+
+.lesson-card .button-group button:nth-child(3) {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+}
+
+.lesson-card .button-group .delete-button {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+/* Enhanced modal design */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.modal {
+  border-radius: 16px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  max-width: 900px !important;
+  width: 92% !important;
+  margin: 3vh auto !important;
+  overflow: hidden !important;
+}
+
+.modal-header {
+  padding: 20px 25px !important;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+}
+
+.modal-header h2 {
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.modal-content {
+  padding: 30px !important;
+  max-height: 70vh !important;
+}
+
+.modal-footer {
+  padding: 20px 25px !important;
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  position: sticky !important;
+  bottom: 0 !important;
+}
+
+/* Better form controls */
+.form-control {
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  font-size: 1rem !important;
+  transition: all 0.3s !important;
+  background-color: #f8fafc !important;
+  color: #000 !important;
+}
+
+.form-control:focus {
+  border-color: #4361ee !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+  background-color: #fff !important;
+  outline: none !important;
+  color: #000 !important;
+}
+
+/* Specific styles for text inputs and textareas */
+.form-control[type="text"],
+.form-control[type="email"],
+.form-control[type="password"],
+textarea.form-control,
+input.form-control {
+  color: #000 !important;
+}
+
+/* Add this to ensure that placeholders are visible but not as dark as actual text */
+.form-control::placeholder {
+  color: #94a3b8 !important;
+  opacity: 0.8 !important;
+}
+
+/* Better labels */
+label {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+/* Enhanced buttons */
+.btn {
+  padding: 12px 24px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-width: 140px !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #4338ca) !important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Better question cards */
+.question-card {
+  background-color: white !important;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  padding: 30px !important;
+  margin-bottom: 30px !important;
+  transition: all 0.3s !important;
+}
+
+.question-header {
+  margin-bottom: 25px !important;
+  padding-bottom: 15px !important;
+  border-bottom: 2px solid #f1f5f9 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Empty states */
+.empty-questions, .empty-state {
+  padding: 60px 30px !important;
+  text-align: center !important;
+  background: linear-gradient(to bottom right, #f8fafc, #f1f5f9) !important;
+  border: 2px dashed #cbd5e1 !important;
+  border-radius: 12px !important;
+  margin: 20px 0 !important;
+}
+
+.empty-state-icon {
+  font-size: 3.5rem !important;
+  color: #94a3b8 !important;
+  margin-bottom: 20px !important;
+  opacity: 0.7 !important;
+}
+
+.empty-state-title {
+  font-size: 1.5rem !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  margin-bottom: 15px !important;
+}
+
+/* Better search container */
+.search-container {
+  position: relative !important;
+  width: 300px !important;
+}
+
+.search-input {
+  padding: 14px 20px 14px 45px !important;
+  border-radius: 30px !important;
+  border: 1px solid #e2e8f0 !important;
+  width: 100% !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+  color: #000 !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #94a3b8 !important;
+}
+
+/* Status message styling */
+.sync-status {
+  padding: 15px 20px !important;
+  margin: 20px 0 !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  font-weight: 500 !important;
+}
+
+.sync-status.success {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+  border-left: 4px solid #10b981 !important;
+}
+
+.sync-status.error {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  border-left: 4px solid #ef4444 !important;
+}
+
+.sync-status.info {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  border-left: 4px solid #3b82f6 !important;
+}
+
+.sync-status i {
+  font-size: 1.2rem !important;
+}
+
+/* Admin badge */
+.admin-badge {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: white !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Teacher badge */
+.teacher-badge {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  box-shadow: 0 2px 5px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* AR links dropdown styling */
+.ar-links-dropdown {
+  width: 100%;
+  z-index: 1001;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.ar-links-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ar-links-dropdown li {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ar-links-dropdown li:hover {
+  background-color: #f1f5f9;
+}
+
+.ar-link-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ar-link-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #000 !important;
+}
+
+.ar-link-url {
+  font-size: 0.85rem;
+  color: #64748b;
+  word-break: break-all;
+}
+
+.close-dropdown {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #f1f5f9;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.close-dropdown:hover {
+  background-color: #e2e8f0;
+}
+
+.ar-links-loading, .ar-links-error, .ar-links-empty {
+  padding: 20px;
+  text-align: center;
+  color: #64748b;
+}

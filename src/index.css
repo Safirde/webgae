@@ -1,0 +1,104 @@
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow-y: scroll !important; 
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ปิด scrollbar ทั้งหมดยกเว้น body */
+*, *::before, *::after {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+/* เปิด scrollbar เฉพาะของ body */
+body::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+/* สำหรับ Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #f1f1f1;
+}
+
+/* Allow content to scroll but maintain fixed navbar */
+#root, .App {
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+/* Touch device scrolling */
+@media (hover: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ทำให้ scrolling ทำงานในทุกส่วน */
+.teacher-layout, .teacher-content, .main-content {
+  width: 100%;
+  overflow: visible;
+}
+
+.teacher-sidebar {
+  position: fixed;
+  height: 100%;
+}
+
+/* กำหนดให้ตาราง responsive */
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}

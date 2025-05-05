@@ -1,0 +1,180 @@
+/* Add these styles to your StudentScoreChart.css file */
+
+/* Fix for lesson names in chart */
+.recharts-x-axis .recharts-cartesian-axis-tick-value {
+  text-anchor: middle !important;
+  transform: translateY(8px);
+  font-size: 12px;
+}
+
+/* Improved tooltip styling */
+.custom-tooltip {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.custom-tooltip-title {
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+
+.custom-tooltip-item {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* Ensure chart container has proper dimensions */
+.chart-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chart-content {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Tab styling */
+.chart-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 10px;
+}
+
+.chart-tab {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  min-width: 120px;
+  text-align: center;
+}
+
+.chart-tab:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.chart-tab.active {
+  background-color: #4361ee;
+  color: white;
+  border-color: #3a5bcf;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for chart text overflows */
+.recharts-wrapper {
+  overflow: visible;
+}
+
+/* Make sure legends are visible */
+.recharts-default-legend {
+  margin-top: 10px !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+.recharts-legend-item {
+  margin-right: 15px !important;
+}
+
+/* Make sure charts don't float but are properly contained */
+.effectiveness-chart,
+.passing-chart,
+.summary-overview-chart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fix reference line label */
+.recharts-reference-line-label {
+  font-weight: bold;
+}
+
+/* Empty state styling */
+.summary-no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #6c757d;
+  width: 100%;
+}
+
+/* Ensure proper spacing in header elements */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.overall-effectiveness {
+  background-color: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Animation for tab transitions */
+.chart-content > div {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .chart-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .chart-tab {
+    margin-bottom: 5px;
+  }
+}

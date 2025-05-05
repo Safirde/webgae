@@ -1,0 +1,115 @@
+/* TeacherProfile.css */
+.teacher-profile-container {
+  position: relative;
+  z-index: 100;
+  left: -100%;
+  top: 10px;
+}
+
+/* New button style that shows name */
+.profile-name-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  background-color: rgb(244, 243, 243);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.profile-name-button:hover {
+  background-color: rgba(52, 168, 83, 0.1);
+}
+
+.profile-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #35b156;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Original styles */
+.profile-button {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdown-header {
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.user-info {
+  text-align: left;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.teacher-email {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 4px 0 0 0;
+}
+
+.dropdown-menu {
+  padding: 8px 0;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #f8f9fa;
+}
+
+.menu-item.logout {
+  color: #EA4335;
+}

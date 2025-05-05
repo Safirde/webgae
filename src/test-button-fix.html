@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Fix Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+      position: relative;
+      justify-content: center;
+    }
+    .edit-button, .delete-button {
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 101;
+      position: relative;
+    }
+    .edit-button {
+      background-color: #3498db;
+      color: white;
+    }
+    .delete-button {
+      background-color: #e74c3c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Button Click Test</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1001</td>
+        <td>Test Student</td>
+        <td>
+          <div class="action-buttons">
+            <button class="edit-button" onclick="testEditClick(1001, event)">E</button>
+            <button class="delete-button" onclick="testDeleteClick(1001, event)">D</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="result"></div>
+
+  <script>
+    function testEditClick(id, event) {
+      event.stopPropagation();
+      document.getElementById('result').innerHTML = `Edit button clicked for ID: ${id}`;
+      console.log('Edit clicked', id);
+    }
+
+    function testDeleteClick(id, event) {
+      event.stopPropagation();
+      document.getElementById('result').innerHTML = `Delete button clicked for ID: ${id}`;
+      console.log('Delete clicked', id);
+    }
+
+    // Add row click event to test event propagation
+    document.querySelector('tr').addEventListener('click', function() {
+      document.getElementById('result').innerHTML = 'Row clicked - This should NOT show when buttons are clicked';
+    });
+  </script>
+</body>
+</html> 
